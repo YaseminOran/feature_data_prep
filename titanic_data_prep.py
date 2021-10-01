@@ -1,7 +1,6 @@
 
 import pandas as pd
 from helpers import data_prep
-
 from helpers.eda import check_df
 from helpers.eda import grab_col_names
 from helpers.data_prep import check_outlier
@@ -163,7 +162,7 @@ check_df(df_prep)
 
 df_prep.to_pickle("./titanic_data_prep.pickle")
 
-#BUNDAN SONRASI MAKİNE ÖĞRENMESİNE DOĞRU GİDİŞ :)
+#BUNDAN SONRASI MAKİNE ÖĞRENMESİ :)
 
 
 
