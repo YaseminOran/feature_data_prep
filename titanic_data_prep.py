@@ -1,14 +1,8 @@
 
-import pandas as pd
-from helpers import data_prep
-from helpers.eda import check_df
-from helpers.eda import grab_col_names
-from helpers.data_prep import check_outlier
-from helpers.data_prep import replace_with_thresholds
-from helpers.data_prep import label_encoder
-from helpers.data_prep import rare_encoder
-from helpers.data_prep import rare_analyser
-from helpers.data_prep import one_hot_encoder
+#import pandas as pd
+from helpers.data_prep import *
+from helpers.eda import *
+
 from sklearn.preprocessing import MinMaxScaler, LabelEncoder, StandardScaler, RobustScaler
 
 pd.set_option('display.max_columns', None)
@@ -138,7 +132,7 @@ def titanic_data_prep(dataframe):
 #frekans(count) ve oranları(ratio) inceleyerek ssıkıntılı durum olup olmadığını incelemek için rare_analyser'ı çağırdım.
 #çöp değişken türedi mi bakmak lazım. new_name_dr biraz düşündürücü
 #makine öğrenmesine olabildiğince az yükle gitmemiz lazım
-    rare_analyser(df,"SURVIVED", cat_cols)
+#python rare_analyser(df,"SURVIVED", cat_cols)
 
 #NOT: amacımız hayatta kaldı kalmadı durumunu ortaya çıkarak feature üretmek. Bu yüzden oluşturulan değişkenlerin ayırt ediciliği
 #ve bilgi taşıyıp taşımaması durumu bunu ifade ediyor. mesela Passangerıd'yi neden çıkardık? çünkü hayatta kkalıp kalmama durumuna
@@ -146,8 +140,7 @@ def titanic_data_prep(dataframe):
 #name değişkenine ihtiyacımız kalmadı. Age değişkeni gibi.
 
 #kullanışsız kolanları getiriyoruz.
-    useless_cols = [col for col in df.columns if df[col].nunique() == 2 and
-                (df[col].value_counts() / len(df) < 0.01).any(axis=None)]
+#useless_cols = [col for col in df.columns if df[col].nunique() == 2 and(df[col].value_counts() / len(df) < 0.01).any(axis=None)]
 # df.drop(useless_cols, axis=1, inplace=True) kullanışsız kolanları istersem silebilirim
 
 #7.STANDART-SCALER
